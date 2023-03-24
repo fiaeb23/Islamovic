@@ -1,16 +1,4 @@
 
-# EINGABE
-"""
-Nutzer gibt ein:
-- Siege
-- Unentschieden
-- Niederlagen
-- Tore
-- Gegentore
-Jede Eingabe sollte in jeweils einer Variable
-gespeichert werden!
-"""
-
 #s = "siege"
 s = int(input ("Gebe Siege ein "))
 
@@ -32,6 +20,35 @@ gt = int(input ("Gebe Gegentore ein "))
 p = "Punkte"
 
 
+
+
+spiele = str(s+u+v)
+td = str(tore - gt)
+p = str(s*3 + u*1 + v*0)
+
+
+
+print ("Das Team hat " + spiele + " Spiele gespielt" )
+print ("Die Tordiverenz liegt bei " + td)
+print ("Und hat " + p + " Punkte")
+
+
+
+
+
+
+# EINGABE
+"""
+Nutzer gibt ein:
+- Siege
+- Unentschieden
+- Niederlagen
+- Tore
+- Gegentore
+Jede Eingabe sollte in jeweils einer Variable
+gespeichert werden!
+"""
+
 # VERARBEITUNG
 """
 Ermittlung der verarbeiteten Werte:
@@ -43,10 +60,6 @@ Achtung:
 - Aus einer texteingabe eine Zahl machen -> eingabe = int(eingabe)
 """
 
-spiele = str(s+u+v)
-td = str(tore - gt)
-p = str(s*3 + u*1 + v*0)
-
 
 # AUSGABE
 """
@@ -55,7 +68,3 @@ Ausgabe der verarbeiteten Werte:
 - Notwendig: print()-Funktion
              z.B. print("Anzahl Punkte:", punkte)
 """
-
-print ("Das Team hat " + spiele + " Spiele gespielt" )
-print ("Die Tordiverenz liegt bei " + td)
-print ("Und hat " + p + " Punkte")
