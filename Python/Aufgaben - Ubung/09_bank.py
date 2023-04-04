@@ -76,8 +76,6 @@
 
 
 
-
-
 import os
 
 PIN = "1010"                                                                # Der PIN für das Konto
