@@ -82,11 +82,14 @@ PIN = "1010"                                                                # De
 
 balance = 1000                                                              # Der Kontostand 
 
+
+print('BANK OF KRÖMER')
+print("Willkommen bei Ihrer Bank!")
+
 def main_menu():                                                            #definierung menü
-    print('BANK OF KRÖMER')
-    print("Willkommen bei Ihrer Bank!")
+    
     print(f"Ihr aktueller Kontostand beträgt: {balance} €")
-    print("[1]. Geild einzahlen")
+    print("[1]. Geld einzahlen")
     print("[2]. Geld abheben")
     print("[3]. Beenden")
 
@@ -104,39 +107,56 @@ def main_menu():                                                            #def
 def geld_einzahlen():
     global balance
     print(f"Ihr aktueller Kontostand beträgt: {balance} €")
-    einzahlung = input ("Geben Sie den Betrag ein, den Sie einzahlen wollen: ")
-    einzahlung = float(einzahlung)
-    balance += einzahlung 
+    einzahlung = input ("Geben Sie den Betrag ein, den Sie einzahlen wollen (x zum Abbrechen): ")
 
-    print (f"Ihr neuer Kontostand beträgt jetzt: {balance} €")
-    os.system("cls")
-    main_menu()
+    if einzahlung == "x":
+        os.system("cls")
+        main_menu()
+        
 
+    else:
+        einzahlung = float(einzahlung)
+        balance += einzahlung 
+
+        print (f"Ihr neuer Kontostand beträgt jetzt: {balance} €")
+        os.system("pause")
+        os.system("cls")
+        main_menu()        
 
 def geld_abheben():
     global balance
-    
     print(f"Ihr aktueller Kontostand beträgt: {balance} €")
-    abhebung = input ("Geben Sie den Betrag ein, den Sie auszahlen wollen: ")
-    abhebung = float(abhebung)
-    if abhebung > balance:
-        print ("Sie haben nicht genug Geld auf dem Konto.")
-        geld_abheben()
-
-    balance -= abhebung
-    print (f"Ihr neuer Kontostand beträgt jetzt: {balance} €")
-    os.system("cls")
-    main_menu()
+    abhebung = input ("Geben Sie den Betrag ein, den Sie auszahlen wollen (x zum Abbrechen): ")
+    if abhebung == 'x':
+        os.system("cls")
+        main_menu()
+    else:
+        abhebung = float(abhebung)
+        if abhebung > balance:
+            print ("Sie haben nicht genug Geld auf dem Konto.")
+            geld_abheben()
+        else:
+            balance -= abhebung
+            print (f"Ihr neuer Kontostand beträgt jetzt: {balance} €")
+            os.system("pause")
+            os.system("cls")
+            main_menu() 
 
 
 def login():
-    pin = input('Geben Sie Ihren PIN ein:  ')
-    if pin == PIN:
-        print('PIN korrekt!')
-        main_menu()
-    else:
-        print("Falscher PIN!")
-        login()                                                                 # restart bei login
+    versuche = 0
+    while versuche < 3:
+        pin = input('Geben Sie Ihren PIN ein:  ')
+        if pin == PIN:
+            print('PIN korrekt!')
+            main_menu()
+        else:
+            versuche += 1
+            print(f"Falscher PIN! {3-versuche} Versuch(e) übrig.")
+    print("Zu viele falsche Versuche. Das Programm wird beendet.")
+    exit()
+
+
 login()                                                                         # Startet das Programm mit der PIN-Abfrage
 
 
