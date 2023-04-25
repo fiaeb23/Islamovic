@@ -35,10 +35,10 @@ def zeige_spielfeld():
 
 def bewege_spieler(player):
     print(f"Spieler {player} ist am Zug.")
-    augenzahl = random.randint(1, 6)
-    print(f"Du hast {augenzahl} gewürfelt.")
+    würfel = random.randint(1, 6)
+    print(f"Du hast {würfel} gewürfelt.")
     alte_position = player_positions[player]
-    player_positions[player] += augenzahl
+    player_positions[player] += würfel
     neue_position = player_positions[player]
     print (f"Neue Position: {neue_position}")
     
