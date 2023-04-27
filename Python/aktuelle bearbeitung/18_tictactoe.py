@@ -24,17 +24,37 @@ def get_move(player):
     reihe, spalte = map(int, move.split(","))
     return reihe - 1, spalte - 1
 
-def check_reihes(board):
-    return
 
-def check_spaltes(board):
-    return
+
+def check_reihes(board):
+    for reihe in board:
+        if len(set(reihe)) == 1 and reihe[0] is not None:
+            return reihe[0]
+    return None
+
+
+def check_spalte(board):
+    for i in range(3):
+        spalte = [board[0][i], board[1][i], board[2][i]]
+        if len(set(spalte)) == 1 and None not in spalte:
+            return spalte[0]
+    return None
 
 def check_diagonals(board):
-    return
+    if all(board[i][i] == board[0][0] for i in range(len(board))):
+        return board[0][0]
+    if all(board[i][len(board)-i-1] == board[0][len(board)-1] for i in range(len(board))):
+        return board[0][len(board)-1]
+    return None
+
 
 def check_winner(board):
-    return
+    winner = check_reihes(board) or check_spalte(board) or check_diagonals(board)
+    if winner:
+        return winner
+    return None
+
+
 
 def play_game():
     board = [[None] * 3 for _ in range(3)]
@@ -48,160 +68,13 @@ def play_game():
             continue
         board[reihe][spalte] = players[current_player]
         print_board(board)
-        # winner = check_winner(board)
-        # if winner:
-        #     print(f"{winner} wins!")
-        #     return
+        winner = check_winner(board)
+        if winner:
+            print(f"{winner} wins!")
+            return
         current_player = (current_player + 1) % 2
 
 
 play_game()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def check_reihes(board):
-#     for reihe in board:
-#         if all(mark == reihe[0] for mark in reihe):
-#             return reihe[0]
-#     return None
-
-# def check_spaltes(board):
-#     for spalte in range(len(board)):
-#         if all(board[reihe][spalte] == board[0][spalte] for reihe in range(len(board))):
-#             return board[0][spalte]
-#     return None
-
-# def check_diagonals(board):
-#     if all(board[i][i] == board[0][0] for i in range(len(board))):
-#         return board[0][0]
-#     if all(board[i][len(board)-i-1] == board[0][len(board)-1] for i in range(len(board))):
-#         return board[0][len(board)-1]
-#     return None
-
-# def check_winner(board):
-#     winner = check_reihes(board) or check_spaltes(board) or check_diagonals(board)
-#     if winner:
-#         return winner
-#     if all(mark is not None for reihe in board for mark in reihe):
-#         return "Tie"
-#     return None
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-player_symbols = {
-    "Player 1": None,
-    "Player 2": None
-}
-
-
-def print_board(board):
-    print("   1  2  3")
-    for i in range(3):
-        row_str = f"{i+1} "
-        for j in range(3):
-            if board[i][j] is None:
-                row_str += "| "
-            else:
-                row_str += f"|{board[i][j]}"
-        row_str += "|"
-        print(row_str)
-
-def get_player_symbol(player):
-    while True:
-        symbol = input(f"Player {player}, choose X or O: ")
-        if symbol.upper() == "X":
-            return "X"
-        elif symbol.upper() == "O":
-            return "O"
-        else:
-            print("Invalid input. Please choose X or O.")
-
-
-player_symbols["player1"] = get_player_symbol("player1")
-player_symbols["player2"] = "X" if player_symbols["player1"] == "O" else "O"
-current_player = "player1"
-
-
-
-def get_move():
-    return
-
-def check_winner():
-    return
-
-
-
-while True:
-    print_board(ttt)
-    row, col = get_move(current_player, ttt)
-    ttt[row][col] = player_symbols[current_player]
-    winner = check_winner(ttt)
-    if winner is not None:
-        print_board(ttt)
-        if winner == "draw":
-            print("It's a draw!")
-        else:
-            print(f"Player {current_player} wins!")
-
-
-'''
