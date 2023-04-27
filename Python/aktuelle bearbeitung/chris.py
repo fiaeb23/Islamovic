@@ -1,10 +1,13 @@
+'''''
 import random
 import os
 
 
 anzahl = 10
+#spielfeld
 spielfeld_s = [None] * anzahl  # [None, None, None, ....]
 spielfeld_c = [None] * anzahl
+#player
 spielfeld_s[0] = "S"
 spielfeld_c[0] = "C"
 
@@ -19,7 +22,9 @@ würfel_c = random.randint(1, 6)
 spielfeld_s_neu = 0
 spielfeld_c_neu = 0
 
-
+def würfeln():
+    würfel = random.randint (1,6)
+    return
 
 
 würfel_s_zw = random.randint(1, 6)
@@ -69,9 +74,7 @@ while True:
             spielfeld_s = spielfeld_s_neu.index("S")
             spielfeld_s += würfel_s
             spielfeld_s_neu = spielfeld_s.index("S")
-            # alte Position = Spieler-Posi
-            # Spieler-Posi += Würfel
-            # Neue_Posi = spieler_posi
+        
 
 
 
@@ -151,4 +154,80 @@ while True:
         print("Bye")
         os.system("pause")
         exit()
-    #"""
+'''
+
+
+import random
+import os
+
+anzahl = 10
+spielfeld_s = [None] * anzahl
+spielfeld_c = [None] * anzahl
+spielfeld_s[0] = "S"
+spielfeld_c[0] = "C"
+
+def print_spielfeld():
+    print("Mensch ärgere dich nicht - arme Ritter Version")
+    print(spielfeld_s)
+    print(spielfeld_c)
+
+def reset_spielfeld():
+    global spielfeld_s, spielfeld_c
+    spielfeld_s[spielfeld_s.index("S")] = None
+    spielfeld_c[spielfeld_c.index("C")] = None
+    spielfeld_s = [None] * anzahl
+    spielfeld_c = [None] * anzahl
+    spielfeld_s[0] = "S"
+    spielfeld_c[0] = "C"
+
+def expand_spielfeld():
+    global anzahl, spielfeld_s, spielfeld_c
+    eingabe = input("Möchtest du die Rundenanzahl wirklich erhöhen bzw. ändern? (Ja/Nein) ")
+    if eingabe.lower() == "ja":
+        neue_groesse = input("Bitte Rundenangabe angeben: ")
+        if neue_groesse.isdecimal():
+            anzahl = int(neue_groesse)
+            spielfeld_s = [None] * anzahl
+            spielfeld_c = [None] * anzahl
+            spielfeld_s[0] = "S"
+            spielfeld_c[0] = "C"
+        else:
+            print("Falsche Eingabe!")
+            os.system("pause")
+    else:
+        print("Abgebrochen.")
+        os.system("pause")
+
+while True:
+    os.system("cls")
+    print_spielfeld()
+    print("[1] Würfeln")
+    print("[2] Neu anfangen (Reset)")
+    print("[3] BONUS FELDER")
+    print("[x] Exit")
+    eingabe = input(">>> ")
+
+    if eingabe == "1":
+        while True:
+            wurfel_s = random.randint(1, 6)
+            wurfel_c = random.randint(1, 6)
+            spielfeld_s_neu = spielfeld_s.index("S") + wurfel_s
+            spielfeld_c_neu = spielfeld_c.index("C") + wurfel_c
+
+            spielfeld_s[spielfeld_s.index("S")] = None
+            spielfeld_s[spielfeld_s_neu] = "S"
+            print("Der Spieler ist um", wurfel_s, "weiter gerückt")
+
+            spielfeld_c[spielfeld_c.index("C")] = None
+            spielfeld_c[spielfeld_c_neu] = "C"
+            print("Der Bot ist um", wurfel_c, "weiter gerückt")
+
+            if spielfeld_s_neu >= anzahl:
+                print("Du hast gewonnen!")
+                os.system("pause")
+                reset_spielfeld()
+                break
+
+            if spielfeld_c_neu >= anzahl:
+                print("Der Computer hat gewonnen!")
+                os.system

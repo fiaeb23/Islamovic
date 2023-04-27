@@ -9,10 +9,29 @@ def zahl_eingeben(input_text, untergrenze, obergrenze):
         else:
             print("Das ist keine valide Eingabe!")
 
+# print("Bitte geben Sie Ihr Geburtsdatum ein:")
+# t = zahl_eingeben("Gebe den Tag ein (1-31): ", 1, 31)
+# m = zahl_eingeben("Gebe den Monat ein (1-12): ", 1, 12)
+# j = zahl_eingeben("Gebe das Jahr ein (1900-2022): ", 1900, 2022)
+
+
+
 def alter_berechnen(eingabe,tag):
     alter = (tag - eingabe)
     print (alter)
-        
+
+# def alter_berechnen(t, m, j):
+#     aktuelles_jahr = 2023
+#     alter = aktuelles_jahr - j - ((aktuelles_jahr, m < t) <= (j, m >= t))
+#     return alter
+
+# def alter_berechnen(t, m, j):
+#     aktuelles_jahr = 2023
+#     geburtsdatum = j * 10000 + m * 100 + t                          # z.B. 19900520 -> 1990.05.20
+#     aktuelles_datum = aktuelles_jahr * 10000 + 4 * 100 + 14         # z.B. 20230414 -> 2023.04.14         
+#     alter = (aktuelles_datum - geburtsdatum) // 10000
+#     return alter
+
 
 
 def aktueller_tag(t,m,j):
@@ -22,9 +41,14 @@ def aktueller_tag(t,m,j):
     tag = aktuelles_tag,aktuelles_monat,aktuelles_jahr
     print (tag)
 
- #   return alter 
+    return 
 
 zahl_eingeben()
+
+# alter = alter_berechnen(t, m, j)
+# print("Ihr Alter ist:", alter)
+
+
 
 
 
@@ -56,4 +80,7 @@ zahl_eingeben()
 
 # print(str(t)+"."+str(m)+"."+str(j)) 
 # print(f"{t:02}.{m}.{j}")
+
+
+
 

@@ -1,0 +1,48 @@
+#x = 20
+#y = 78
+
+#print (x+y)
+
+
+temp = input("Welche Temperatur soll umgewandelt werden? (bsp. 45F, 102C) : ")
+grad = int(temp[:-1])
+i_convention = temp[-1]
+
+if i_convention.upper() == "C":
+  result = int(round((9 * grad) / 5 + 32))
+  o_convention = "Fahrenheit"
+elif i_convention.upper() == "F":
+  result = int(round((grad - 32) * 5 / 9))
+  o_convention = "Celsius"
+elif i_convention.upper() == "K":
+  result = int(round((grad + 273.15)))
+  o_convention = "Kelvin"
+else:
+  print("Korrigiere die Eingabe.")
+  quit()
+print("Die Temperature in", o_convention, "ist", result, "Grad.")
+
+
+
+#berechnung alle gegegeben zahlen
+counter = 1
+summe = 0
+
+
+while counter < 11: 
+    print (counter)
+    summe = summe + counter
+    counter = counter + 1
+   
+print (("Summe: "), summe)
+
+
+
+#durschnitt 
+print ("Der druschnitt beträgt: ", summe/(counter-1))
+
+
+average = sum(counter) / len(counter)
+
+print (f"Der druschnitt beträgt: {average}")
+

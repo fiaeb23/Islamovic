@@ -36,5 +36,6 @@ print (num)
 # zahl eingrenzen
 #n = variable zb. user_nr
 if num < 1 or num > 10:
+    print("win")
 else:
     print (num)

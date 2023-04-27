@@ -33,3 +33,34 @@ while counter < 11:
    
 print("Summe:", summe)
 print("Durchschnitt:", summe/(counter-1))
+
+
+
+
+'''
+summe = 0
+counter = 1
+
+print("Bitte Arbeitszeit als Ganzzahl eingeben:")
+while counter < 11:
+
+    if counter < 10:
+        arbeitszeit = input("Für 0"+str(counter)+".03.2023: ")
+    else:
+        arbeitszeit = input("Für "+str(counter)+".03.2023: ")
+        
+    """ Alternativ mit f-strings:
+    arbeitszeit = input(f"Für {int(counter):02}.03.2023: ") 
+    """
+    
+    if arbeitszeit.isdecimal() and 0 < int(arbeitszeit) < 11:
+        print("Vielen Dank!")
+        summe = summe + int(arbeitszeit)
+        counter = counter + 1
+    else:
+        print("Das ist keine valide Eingabe!")
+
+print()   
+print("Summe:", summe)
+print("Durchschnitt:", summe/(counter-1))
+'''
