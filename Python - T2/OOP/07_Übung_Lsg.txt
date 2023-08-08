@@ -1,0 +1,15 @@
+1.
+Attribute:
+- baujahr = 1970
+- marke = "De Tomaso"
+- modell = "Pantera"
+- verbrauchsstoff = "Benzin"
+
+Methoden:
+- fahren()
+- bremsen()
+- blinken()
+
+2.
+<-spezifisch------------------------------------allgemein->
+Oldtimer   PKW    Fahrzeug    Fortbewegungsmittel
