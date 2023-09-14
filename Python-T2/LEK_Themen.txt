@@ -1,0 +1,81 @@
+1) Erweiterte Programmierung
+   a) (List) Comprehension
+   b) Generator Expressions/Functions
+   c) Funktionen advanced
+   d) Lambda
+   e) Decorator
+2) OOP
+   f) OOP in Python
+   g) UML-Klassendiagramme
+   h) OOP-Konzepte
+3) App-Entwicklung
+   - UI & UX
+   - Komponenten von Apps
+
+
+# Beispielfragen:
+a) 
+Welche Liste erstellt die folgende List Comprehension?
+[x*2 for x in range(1, 4) if x % 2 == 0]
+Antwort: [4]
+
+Welches Set erstellt die folgende Set Comprehension?
+{x+y for x in range(1, 3) for y in range(1, 3)}
+Antwort: {2, 3, 4}
+
+b)
+- konzeptionelle Fragen (z.B. was ist lazy evaluation?)
+
+c)
+- welche konsequenzen hat ein type hint?
+  Antwort: welchen typ ein parameter haben SOLLTE (!=MUSS)
+def fun(x: str):
+	return x
+- Wie darf man folgende Funktion aufrufen?
+def fun(**kwargs):
+	pass
+  Antwort: fun(), fun(x=3, y=4), fun(**{"a":1})
+
+d)
+- Wie ist eine korrekte Lambda-Funktion aufgebaut?
+lambda x, y: x+y        # return x+y
+lambda x, y: print(x+y) # return None
+
+- konzeptionelle fragen (z.B. was ist IIFE?)
+  Antwort: z.B. (lambda x: x+3)(10)  # return 13
+
+e)
+- Wie ist ein decorator aufgebaut und wie wird er genutzt?
+  Antwort: z.b. wrapper-function im decorator
+  Antwort: Decorator nutzen: @deco (über der definition)
+
+f)
+- Komponenten einer Klasse: (Klassen/Objekt-)Attribute, (Klassen/Objekt-)Methoden
+- Beispielszenario: ... Frage: Welche Klasse ist geeignet?
+- Aufgaben von magic methods
+
+g)
+- Wie ist eine UML-Klasse aufgebaut?
+  Antwort: Name, Attribute, Methoden (untereinander aufgelistet)
+           Sichtbarkeiten, Datentypen
+- Welche UML-Klassendiagramm-Beziehungsart beschreibt folgende Anforderung (mindestens)?
+  Beispiel: Warenkorb mit einzigartigen Artikeln
+  Antwort: Aggregation
+- Welche Aussage lässt sich durch die Kardinalität treffen?
+  Beispiel: Customer 1 -- 1 ShoppingCart
+  Antwort: Genau 1 Kunde steht in Beziehung zu genau 1 Warenkorb
+
+h)
+- konzeptionelle fragen
+
+i)
+- was ist ein bestandteil von UI?
+  Antwort: z.B. layout
+- was ist eine zielgröße von UX?
+  Antwort: z.B. Look
+
+j)
+- was ist die aufgabe eines buttons?
+  Antwort: interaktion mit der webapp
+- was ist die aufgabe eines textfelds?
+  Antwort: eingabe von werten (z.B. name)
